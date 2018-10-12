@@ -1,0 +1,87 @@
+.gradient {
+  height: 4px;
+  background: radial-gradient(
+    ellipse farthest-corner,
+    rgb(207, 204, 0),
+    rgb(255, 0, 0),
+    rgb(248, 121, 242)
+  );
+}
+
+.Header__root {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+}
+
+.Header__container {
+  padding: 0.8rem 0;
+  margin: 0;
+  text-align: left;
+}
+
+.Header__logo {
+  font-size: 24px;
+  font-family: "font-cfa57654-9aed-4934-af01-7cdc586aa76d";
+  letter-spacing: 0.1px;
+  margin-left: 1.5em;
+}
+
+.Header__logo-link {
+  text-decoration: none;
+  color: #262626;
+}
+
+.Header__logo-link:hover {
+  text-decoration: none;
+}
+
+.Header__nav-group {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Header__nav-link {
+  margin-left: 2.5rem;
+  font-size: 20px;
+}
+
+.Header__nav-link a {
+  text-decoration: none;
+  color: #999;
+  align-items: baseline;
+}
+
+.Header__nav-icon.fa {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.Header__nav-link a:hover,
+.Header__nav-link a:active {
+  color: #262626;
+}
+
+.Header__nav-link .NavLink--active {
+  color: #262626;
+}
+
+.avatar {
+  margin: 0;
+  padding: 0;
+  width: 33px;
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 555px) {
+  .Header__container {
+    padding: 0.8rem 0;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Header__logo-link {
+    padding-right: 2em;
+  }
+}
