@@ -9,7 +9,6 @@ import {
 } from "../actions/postActions";
 
 import { Photo } from "../components";
-import PhotoGrid from "./PhotoGrid";
 import Spinner from "../components/common/Spinner";
 
 class PhotoFeed extends Component {
@@ -55,7 +54,9 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { getPosts, deletePost, addLike, removeLike }
-)(PhotoFeed);
+export default connect(mapStateToProps, {
+  getPosts,
+  deletePost,
+  addLike,
+  removeLike
+})(PhotoFeed);

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
-import classnames from "classnames";
 
 import "./Photo.css";
 import CommentForm from "../../containers/CommentForm";
@@ -36,14 +35,11 @@ class Photo extends Component {
     this.props.deletePost(id);
   }
 
-  
   render() {
     const { post } = this.props;
     const { user } = this.props;
-    
-    const avatar = `https://api.adorable.io/avatars/100/${
-      post.name
-    }@adorable.png`;
+
+    const avatar = `https://api.adorable.io/avatars/100/${post.name}@adorable.png`;
 
     return (
       <article className="Photo__root">
@@ -75,7 +71,7 @@ class Photo extends Component {
         <div className="Photo__body">
           <img src={post.postImg} alt="" />
         </div>
-        <PostLikes post={post} user={user}/>
+        <PostLikes post={post} user={user} />
         <div className="Photo__comments container ml-2 mr-2 mt-2">
           <ul className="m-0">
             <li className="mb-2">

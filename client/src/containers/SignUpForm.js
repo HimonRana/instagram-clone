@@ -30,7 +30,7 @@ export class SignUpForm extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
@@ -69,7 +69,7 @@ export class SignUpForm extends Component {
     return (
       <div className="signUpDiv">
         <div className="signUpBox">
-          <img src={avatar} className="userAvatar" alt=""/>
+          <img src={avatar} className="userAvatar" alt="" />
           <form
             noValidate
             className="SignUpForm__root"
@@ -147,9 +147,9 @@ export class SignUpForm extends Component {
   }
 }
 
-SignUpForm.PropTypes = {
+SignUpForm.propTypes = {
   registerUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.IsRequired,
+  auth: PropTypes.object,
   errors: PropTypes.object.isRequired
 };
 
@@ -158,7 +158,6 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(
-  mapStateToProps,
-  { registerUser }
-)(withRouter(SignUpForm));
+export default connect(mapStateToProps, { registerUser })(
+  withRouter(SignUpForm)
+);

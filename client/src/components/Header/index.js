@@ -17,9 +17,7 @@ class Header extends Component {
   render() {
     const { isAuthenticated, user } = this.props.auth;
 
-    const avatar = `https://api.adorable.io/avatars/100/${
-      user.name
-    }@adorable.png`;
+    const avatar = `https://api.adorable.io/avatars/100/${user.name}@adorable.png`;
 
     const authLinks = (
       <div className="Header__container d-flex justify-content-between">
@@ -38,7 +36,7 @@ class Header extends Component {
           <ul className="Header__nav-group d-flex align-items-center">
             <li className="Header__nav-link">
               <Link title="Create Post" to="/createpost">
-              <i className="fas fa-plus-circle"></i>
+                <i className="fas fa-plus-circle"></i>
               </Link>
             </li>
             <li className="Header__nav-link">
@@ -57,13 +55,13 @@ class Header extends Component {
               </Link>
             </li>
             <li className="Header__nav-link">
-              <a
-                href=""
+              <button
+                href="#"
                 onClick={this.onLogoutClick.bind(this)}
                 className="nav-link"
               >
                 <img className="avatar" src={avatar} alt={user.name} /> Logout
-              </a>
+              </button>
             </li>
           </ul>
         </nav>
@@ -104,7 +102,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { logoutUser, clearCurrentProfile }
-)(Header);
+export default connect(mapStateToProps, { logoutUser, clearCurrentProfile })(
+  Header
+);

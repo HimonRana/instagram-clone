@@ -23,12 +23,20 @@ export class PostLikes extends Component {
     const { likes } = this.props.post;
 
     return likes.map(like => {
-      like.user === user.id
-        ? this.setState({
-            isliked: true,
-            buttonText: "Unlike"
-          })
-        : null;
+      if (like.user === user.id) {
+        this.setState({
+          isliked: true,
+          buttonText: "Unlike"
+        });
+      } else {
+        return;
+      }
+      // like.user === user.id
+      //   ? this.setState({
+      //       isliked: true,
+      //       buttonText: "Unlike"
+      //     })
+      //   : null;
     });
   }
 
@@ -83,7 +91,4 @@ export class PostLikes extends Component {
 //   auth: state.auth
 // }
 
-export default connect(
-  null,
-  { addLike, removeLike }
-)(PostLikes);
+export default connect(null, { addLike, removeLike })(PostLikes);

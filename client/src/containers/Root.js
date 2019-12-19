@@ -1,5 +1,5 @@
 import React from "react";
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -19,7 +19,7 @@ const middleware = [thunk];
 const store = createStore(
   rootReducer,
   initialState,
-    applyMiddleware(...middleware)
+  applyMiddleware(...middleware)
 );
 
 // Check for Token
@@ -33,13 +33,13 @@ if (localStorage.jwtToken) {
 
   // Check for expired token
   const currentTime = Date.now() / 1000;
-  if(decoded.exp < currentTime) {
+  if (decoded.exp < currentTime) {
     // Logout user
     store.dispatch(logoutUser());
     // Clear current Profile
     store.dispatch(clearCurrentProfile());
     // Redirect to login
-    window.location.href= '/';
+    window.location.href = "/";
   }
 }
 

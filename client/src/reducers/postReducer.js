@@ -49,7 +49,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         posts: state.posts.map((post, index) => {
-          if (action.payload._id == post._id) {
+          if (action.payload._id === post._id) {
             post = action.payload;
           }
           return post;
@@ -57,6 +57,7 @@ export default function(state = initialState, action) {
         loading: false
       };
     case DELETE_COMMENT:
+      console.log(state.posts.filter(post => console.log(post)));
       return {
         ...state,
         posts: action.payload

@@ -34,14 +34,14 @@ class Dashboard extends Component {
     this.props.deleteAccount();
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.profile.profile) {
       const profile = nextProps.profile.profile;
 
       // If profile field doesnt exist, make empty string
       profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
       profile.imgUrl = !isEmpty(profile.imgUrl) ? profile.imgUrl : "";
-      
+
       this.setState({
         bio: profile.bio,
         imgUrl: profile.imgUrl
@@ -76,7 +76,7 @@ class Dashboard extends Component {
             value={this.state.bio}
             onChange={this.onChange}
           />
-          <br/>
+          <br />
           <input
             className="form-control-lg"
             placeholder="Profile image URL here"
@@ -84,7 +84,11 @@ class Dashboard extends Component {
             value={this.state.imgUrl}
             onChange={this.onChange}
           />
-          <button type="submit" value="Submit" className="btn-primary bioButton mt-4">
+          <button
+            type="submit"
+            value="Submit"
+            className="btn-primary bioButton mt-4"
+          >
             {" "}
             Submit
           </button>
@@ -100,7 +104,7 @@ class Dashboard extends Component {
   }
 }
 
-Dashboard.PropTypes = {
+Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   deleteAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
@@ -114,7 +118,8 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(
-  mapStateToProps,
-  { getCurrentProfile, createProfile, deleteAccount }
-)(withRouter(Dashboard));
+export default connect(mapStateToProps, {
+  getCurrentProfile,
+  createProfile,
+  deleteAccount
+})(withRouter(Dashboard));

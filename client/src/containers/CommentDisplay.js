@@ -5,13 +5,9 @@ import PropTypes from "prop-types";
 import { deleteComment } from "../actions/postActions";
 
 class CommentDisplay extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   onDeleteClick(postId, commentId) {
     this.props.deleteComment(postId, commentId);
-    window.location.reload(false);
+    // window.location.reload(false);
   }
 
   render() {
@@ -59,7 +55,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { deleteComment }
-)(CommentDisplay);
+export default connect(mapStateToProps, { deleteComment })(CommentDisplay);

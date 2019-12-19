@@ -28,7 +28,7 @@ export class SignInForm extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
       this.props.history.push("/home");
     }
@@ -136,7 +136,4 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(
-  mapStateToProps,
-  { loginUser }
-)(withRouter(SignInForm));
+export default connect(mapStateToProps, { loginUser })(withRouter(SignInForm));
